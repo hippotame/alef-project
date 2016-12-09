@@ -1,0 +1,40 @@
+body {
+    
+    color: #333;
+    background: black;
+    padding: 50px;
+}
+div.wrapper {
+    background-color: white;
+    padding: 50px;
+}
+
+table.alef-table {
+    border: 1px solid black;
+    background-color: #333;
+}
+table.alef-table td {
+    border: 1px solid black;
+    width: 40px;
+    height:35px;
+    text-align: center;
+    vertical-align: central;
+    background-color: whitesmoke;
+}
+table.alef-table td a {
+    display: block;
+    width: 100%;
+    height:100%;
+    text-align: center;
+    padding-top: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    color: black;
+}
+table.alef-table td a:hover {
+    background-color: #99ff66;
+    color: #990033;
+}
+.used_note {
+    background-color:#ff3333; 
+}

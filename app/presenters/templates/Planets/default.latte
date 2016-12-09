@@ -1,0 +1,15 @@
+{* Latte template *}
+
+{block content}
+
+
+
+{foreach $data as $planet => $out}
+    
+    <a class="btn btn-default" role="button" href="{plink :Planets:Planet, $planet}">{$planet}</a>
+    
+    
+{/foreach}
+
+
+

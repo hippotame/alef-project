@@ -1,0 +1,146 @@
+{* Latte template *}
+
+{block content}
+
+
+<section class="planet color-dark bg-white">
+
+    <div class="container">
+        <div class="row marginbot-10">
+            <div class="nav-alef-bar text-right">
+                <a class="btn btn-default" href="{plink :Planets:default}" role="button">BACK TO ALL</a>
+                <p>&nbsp;</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h2>{$name|upper} - <small>{$all_count}</small></h2>
+            </div>
+            <div class="col-md-6">
+                {control addWord}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div  id="ctx">
+                    <table class="alef-table">
+                        {foreach $data as $key => $row}
+                            <tr>
+                                {foreach $row as $k => $td}
+                                    <td class="alef-td" id="{$td['id']}">
+                                        <a href="#" id="{$td['a_id']}" data-td="{$td['value']}" data-note="{$td['a_note']}" class="a_click">{$td['value']}</a>
+                                    </td>
+                                {/foreach}
+
+                            </tr>
+                        {/foreach}
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h2>VALUES</h2>
+                <table class="table table-striped">
+                    <tr>
+                        <td>Rows Values </td>
+                        <td> {join(' | ',$rows_count)}</td>
+                    </tr>
+                    <tr>
+                        <td>Cols Values </td>
+                        <td> {join(' | ',$cols_count)}</td>
+                    </tr>
+                    <tr>
+                        <td>Count </td>
+                        <td> {$all_count}</td>
+                    </tr>
+                    <tr>
+                        <td>Notes</td>
+                        <td>
+                            <div id="note-line"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Numbers</td>
+                        <td>
+                            <div id="note-numbers"></div>
+                        </td>
+                    </tr>
+                </table>
+                <p>&nbsp;</p>
+                <a id="reset" class="btn btn-default btn-warning" href="#" role="button">Reset</a>
+                <input id="name" value="">
+                &nbsp;<a id="save" class="btn btn-default btn-danger" href="#" role="button">Save</a>
+            </div>
+        </div>
+        <div class="row marginbot-10">
+            <div class="col-md-6">
+
+            </div>
+            <div class="col-md-6">b</div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        
+
+        var Vocabulary = new Array();
+        Vocabulary[0] = 'Please use name of Note line.';
+        Vocabulary[1] = 'Please add some numbers';
+
+        var used_bg_class = 'used_note';
+        var note_line = $('#note-line');
+        var input_name = $('#name');
+        var note_numbers = $('#note-numbers');
+
+        $('.a_click').click(function () {
+            var delimiter = '-';
+            var delimiter_numbers = ':';
+            if (note_line.html() == '') {
+                delimiter = '';
+            }
+            if (note_numbers.html() == '') {
+                delimiter_numbers = '';
+            }
+            var note_line_add = note_line.html() + delimiter + $(this).attr('data-note');
+            var note_numbers_add = note_numbers.html() + delimiter_numbers + $(this).attr('data-td');
+            note_line.html(note_line_add);
+            note_numbers.html(note_numbers_add);
+            $(this).addClass(used_bg_class);
+        });
+
+
+        $('#reset').click(function () {
+            $('#note-line').html(' ');
+            $('.a_click').each(function () {
+                $(this).removeClass(used_bg_class);
+            });
+        });
+        $('#save').click(function () {
+
+            if (input_name.val() == '') {
+                alert(Vocabulary[0]);
+                return false;
+            }
+            if (note_line.html() == '') {
+                alert(Vocabulary[1]);
+                return false;
+            }
+            var save_data_name = input_name.val();
+            var save_data_notes = note_line.html();
+            var save_data_numbers = note_numbers.html();
+            $.post({plink :Planets:SaveTrack}, {
+                data_name: save_data_name,
+                data_notes: save_data_notes,
+                data_numbers: save_data_numbers,
+                data_planet: {$name}
+            }).done(function (data) {
+                alert(data);
+            });
+        });
+
+    });
+</script>
+
+{/block}
