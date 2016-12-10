@@ -29,7 +29,7 @@ class Alphabet {
             'unicode' => '05D1',
             'unicode_name' => "HEBREW ' + l + 'BET",
             'num' => 2,
-            'fone_name' => 'bet',
+            'fone_name' => 'beth',
             'what' => 'dům'
         ];
         $alphabet['g'] = [
@@ -37,7 +37,7 @@ class Alphabet {
             'unicode' => '05D2',
             'unicode_name' => "HEBREW ' + l + 'GIMEL",
             'num' => 3,
-            'fone_name' => 'gimel',
+            'fone_name' => 'ghimel',
             'what' => 'velbloud'
         ];
         $alphabet['d'] = [
@@ -45,7 +45,7 @@ class Alphabet {
             'unicode' => '05D3',
             'unicode_name' => "HEBREW ' + l + 'DALET",
             'num' => 4,
-            'fone_name' => 'dalet',
+            'fone_name' => 'daleth',
             'what' => 'dveře'
         ];
         $alphabet['h'] = [
@@ -56,12 +56,12 @@ class Alphabet {
             'fone_name' => 'he',
             'what' => 'okno'
         ];
-        $alphabet['w'] = [
+        $alphabet['v'] = [
             'c_value' => 1,
             'unicode' => '05D5',
             'unicode_name' => "HEBREW ' + l + 'VAV",
             'num' => 6,
-            'fone_name' => 'vav',
+            'fone_name' => 'vau',
             'what' => 'hák'
         ];
         $alphabet['z'] = [
@@ -85,7 +85,7 @@ class Alphabet {
             'unicode' => '05D8',
             'unicode_name' => "HEBREW ' + l + 'TET",
             'num' => 9,
-            'fone_name' => 'tet',
+            'fone_name' => 'thet',
             'what' => 'had'
         ];
         $alphabet['j'] = [
@@ -152,7 +152,7 @@ class Alphabet {
             'fone_name' => 'pe',
             'what' => 'ústa'
         ];
-        $alphabet['c'] = [
+        $alphabet['Ts'] = [
             'c_value' => 1,
             'unicode' => '05E6',
             'unicode_name' => "HEBREW ' + l + 'TSADI",
@@ -176,7 +176,7 @@ class Alphabet {
             'fone_name' => 'reš',
             'what' => 'hlava'
         ];
-        $alphabet['s'] = [
+        $alphabet['š'] = [
             'c_value' => 1000,
             'unicode' => '05E9',
             'unicode_name' => "HEBREW ' + l + 'SHIN",
@@ -184,7 +184,7 @@ class Alphabet {
             'fone_name' => 'šin',
             'what' => 'zub'
         ];
-        $alphabet['t'] = [
+        $alphabet['th'] = [
             'c_value' => 2,
             'unicode' => '05EA',
             'unicode_name' => "HEBREW ' + l + 'TAV",
@@ -195,9 +195,12 @@ class Alphabet {
         return $alphabet;
     }
 
-    public static function getData($note) {
+    
+    
+    
+    public static function getAll() {
         $data = self::data();
-        return $data[$note];
+        return $data;
     }
 
 }

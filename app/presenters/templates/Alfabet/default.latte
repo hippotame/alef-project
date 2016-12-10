@@ -1,0 +1,45 @@
+{* This is the welcome page, you can delete it *}
+
+{block content}
+
+
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Hebrew</th>
+            <th>Name</th>
+            <th>Czech eq</th>
+            <th>Number</th>
+            <th>Meaning</th>
+            <th>Power</th>
+            <th>Unicode Name</th>
+            <th>Note</th>
+        </tr>
+    </thead>
+    <tbody>
+        {foreach $data as $key => $row }
+            <tr>
+                <td role="row" class="hebrew-font text-center"><strong>&#x{$row['unicode']}</strong></td>
+                <td>{$row['fone_name']}</td>
+                <td>{$key|upper}</td>
+                <td class="text-center">{$row['num']}</td>
+                <td>{$row['what']}</td>
+                <td>{$row['c_value']}</td>
+                <td>{$row['unicode_name']}</td>
+                <td>{\Data\Notes::getData($row['num'])}</td>
+            </tr>
+        {/foreach}
+    </tbody>
+</table>
+{/block}
+
+{block scripts}
+{include parent}
+
+{/block}
+
+
+{block head}
+
+{/block}

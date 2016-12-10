@@ -39,11 +39,25 @@ class Notes {
         }
         return $notes;
     }
-    
-    
-    public static function getData($note){
+
+    public static function getData($note) {
         $notes = self::data();
-        return $notes[$note];
+        if (array_key_exists($note, $notes)) {
+            return $notes[$note];
+        }
+        $note_try = $note / 10; 
+        if (array_key_exists($note_try, $notes)) {
+            return $notes[$note_try];
+        }
+        $note_try = $note / 100; 
+        if (array_key_exists($note_try, $notes)) {
+            return $notes[$note_try];
+        }
+        $note_try = $note / 1000; 
+        if (array_key_exists($note_try, $notes)) {
+            return $notes[$note_try];
+        }
+        return 'na';
     }
 
 }

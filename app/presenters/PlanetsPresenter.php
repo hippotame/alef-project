@@ -35,6 +35,8 @@ class PlanetsPresenter extends BasePresenter {
         $this->makeCounts($planetData);
         $this->transData($planetData);
         $this->template->name = $planet;
+        $alphabetData = \Data\Alphabet::getAll();
+        $this->template->alfabet = $alphabetData;
         //dump($this->template->data);
     }
 
