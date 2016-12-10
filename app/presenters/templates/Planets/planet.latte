@@ -29,7 +29,7 @@
                         {foreach $alfabet as $cz => $row}
                             <td>
                                 <div class="hebrew-font btn btn-default">
-                                    <strong>&#x{$row['unicode']}</strong>
+                                    <strong><a class="try_d">&#x{$row['unicode']}</a></strong>
                                 </div>
                             </td>
                         {/foreach}
@@ -68,6 +68,10 @@
                 </div>
             </div>
             <div class="col-md-6">
+                <div id="daemon-area">
+                    <h4>Name of the daemon/angel</h4>
+                    <div id="daemon-name"></div>
+                </div>
                 <h2>VALUES</h2>
                 <table class="table table-striped">
                     <tr>

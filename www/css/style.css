@@ -38,6 +38,18 @@ table.alef-table td.alef-td6 {
     width: 100px;
     height:90px;
 }
+table.alef-table td.alef-td7 {
+    width: 80px;
+    height:70px;
+}
+table.alef-table td.alef-td8 {
+    width: 70px;
+    height:63px;
+}
+table.alef-table td.alef-td9 {
+    width: 60px;
+    height:55px;
+}
 table.alef-table td a {
     display: block;
     width: 100%;
